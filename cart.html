@@ -11,17 +11,37 @@
             grid-template-columns:repeat(4,1fr);
             gap:20px;
         }
+        body>a{
+            font-size:24px;
+            font-family:arial;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            padding:10px;
+            background-color:cornflowerblue;
+            border-radius:16px;
+            display:flex;
+            width:10%;
+            flex-direction:row;
+            justify-content:center;
+            
+        }
     </style>
 </head>
 <body>
-    <h1>cart page</h1>
+    <h1 style="text-align:center;color:blueviolet">cart page</h1>
+    
+    <h2></h2>
+    <a href="./payment.html">makepayment</a>
     <div id="checkout">
 
     </div>
 </body>
 <script>
     var cartdata=JSON.parse(localStorage.getItem("cartdata"));
-    console.log(cartdata);
+    var totalsum=cartdata.reduce(function(sum,ele,index,arr){
+         return sum+Number(ele.price);
+    },0);
+    var totalitems=cartdata.length;
+    document.querySelector("h2").innerText="you have"+" "+totalitems+" "+"items in your cart of total"+" "+totalsum+" "+"rupees";
     cartdata.forEach(function(ele,index){
      var box=document.createElement("div");
      var img=document.createElement("img");

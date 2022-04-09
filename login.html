@@ -45,6 +45,7 @@
     document.querySelector("form").addEventListener("submit",loginfn);
     var registredusers=JSON.parse(localStorage.getItem("userdata"));
     function loginfn(){
+        event.preventDefault();
         var enteredemail=document.querySelector("#email").value;
         var enteredpass=document.querySelector("#password").value;
         var flag=false;
