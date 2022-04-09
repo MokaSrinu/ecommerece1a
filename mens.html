@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens catalouge page</title>
+    <style>
+        #container{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:20px;
+        }
+        @media all and (min-width:80px) and (max-width:400px){
+            #container{
+                grid-template-columns:repeat(1,1fr);
+            }
+        }
+        body>h1{
+            color:crimson;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mens catalouge page</h1>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+    var cartdata;
+    if(localStorage.getItem("cartdata")===null){
+        cartdata=[];
+    }else{
+        cartdata=JSON.parse(localStorage.getItem("cartdata"));
+    }
+    var mensdata=[
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010693493-Green-Olive-1000010693493-22122021_01-345.jpg",
+            name:"MAX Printed Polo T-shirt",
+            price:"369",
+            strikedofprice:"2999"
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010541186-Black-Black-1000010541186-7092021_01-345.jpg",
+            name:"MAX Printed Elasticated Waist Shorts",
+            price:"449",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010971908-Black-BLACK-1000010971908-2022022_01-345.jpg",
+            name:"MAX Textured Slim Fit Polo T-shirt",
+            price:"699",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010252061-Blue-Darkblue-1000010252061-7152021_01-345.jpg",
+            name:"MAX Solid Slim Fit Polo T-shirt",
+            price:"599",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010923682-Yellow-MUSTARD-1000010923682-12012022_01-345.jpg",
+            name:"MAX Solid Slim Fit Polo T-shirt",
+            price:"449",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010748329-Blue-NAVY-1000010748329-29122021_01-345.jpg",
+            name:"MAX Printed Polo T-shirt",
+            price:"369",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010921733-Blue-BLUE-1000010921733-29122021_01-345.jpg",
+            name:"MAX Striped Slim Fit Polo T-shirt",
+            price:"499",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010422093-Yellow-Yellow-1000010422093-7292021_01-345.jpg",
+            name:"MAX Solid Casual sandles",
+            price:"1499",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010477366-Blue-Midblue-1000010477366-11112021_01-345.jpg",
+            name:"MAX Stonewashed Carrot Fit Jeans",
+            price:"1699",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010477061-Grey-GREY-1000010477061-15122021_01-345.jpg",
+            name:"MAX Solid Carrot Fit Denim Jeans",
+            price:"1499",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010477192-Blue-Darkblue-1000010477192-11302021_01-345.jpg",
+            name:"MAX Stonewashed Carrot Fit Jeans",
+            price:"1399",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010680535-Blue-Lightblue-1000010680535-9222021_01-345.jpg",
+            name:"MAX Solid Buckle Detailed Sliders",
+            price:"399",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010923336-Blue-BLUE-1000010923336-28012022_01-345.jpg",
+            name:"MAX Textured Lace-Up Sports Shoes",
+            price:"1499",
+            strikedofprice:""
+        },
+        {
+            image_url:"https://10d06a4d12b851f1b2d5-6729d756a2f36342416a9128f1759751.lmsin.net/1000010374391-Green-GREEN-1000010374391-5012022_01-345.jpg",
+            name:"MAX Solid Lace-Up Sneakers",
+            price:"999",
+            strikedofprice:""
+        }
+    ];
+    mensdata.forEach(function(ele){
+     var box=document.createElement("div");
+     var img=document.createElement("img");
+     img.src=ele.image_url;
+     var name=document.createElement("p");
+     name.textContent=ele.name;
+     var price=document.createElement("p");
+     price.innerText=ele.price;
+     var cartbutton=document.createElement("button");
+     cartbutton.innerText="add to cart";
+     cartbutton.addEventListener("click",function(){
+         cartdata.push(ele);
+         localStorage.setItem("cartdata",JSON.stringify(cartdata));
+         console.log(cartdata);
+     });
+     box.append(img,name,price,cartbutton);
+     document.querySelector("#container").append(box);
+    });
+</script>
+</html>
