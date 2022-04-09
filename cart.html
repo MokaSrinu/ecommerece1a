@@ -28,7 +28,8 @@
 </head>
 <body>
     <h1 style="text-align:center;color:blueviolet">cart page</h1>
-    
+    <input type="text" placeholder="Apply Promo Code" id="promocode">
+    <button id="apply">apply</button>
     <h2></h2>
     <a href="./payment.html">makepayment</a>
     <div id="checkout">
@@ -40,6 +41,15 @@
     var totalsum=cartdata.reduce(function(sum,ele,index,arr){
          return sum+Number(ele.price);
     },0);
+    document.querySelector("#apply").addEventListener("click",applyfn);
+    function applyfn(){
+        event.preventDefault();
+        if(document.querySelector("#promocode").value=="masai30"){
+        totalsum=totalsum*(70/100);
+        document.querySelector("h2").innerText="you have"+" "+totalitems+" "+"items in your cart of total"+" "+totalsum+" "+"rupees";
+    }
+    }
+    
     var totalitems=cartdata.length;
     document.querySelector("h2").innerText="you have"+" "+totalitems+" "+"items in your cart of total"+" "+totalsum+" "+"rupees";
     cartdata.forEach(function(ele,index){
